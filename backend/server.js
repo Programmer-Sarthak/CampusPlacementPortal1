@@ -1,6 +1,13 @@
+import connectDB from './config/db.js';
 import express from 'express';
+
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT ?? 3000;
+
+await connectDB();
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
