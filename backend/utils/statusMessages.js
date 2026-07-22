@@ -2,7 +2,7 @@
  * Status Codes and Messages for API Responses
  */
 
-module.exports = {
+const statusMessages = {
   // Success Responses
   SUCCESS: {
     code: 200,
@@ -75,3 +75,6 @@ module.exports = {
     message: "Session expired. Please login again",
   },
 };
+
+export default statusMessages;
+
