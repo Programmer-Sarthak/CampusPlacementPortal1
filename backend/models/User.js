@@ -64,7 +64,7 @@ const userSchema = new mongoose.Schema(
             enum: ['admin', 'student', 'company'],
             required: true,
         },
-        userName: {
+        enrollmentNumber: {
             type: String,
             required: true,
             unique: true,

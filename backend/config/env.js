@@ -5,6 +5,8 @@ export const envData = {
     port: process.env.PORT,
     mongoURL: process.env.MONGODB_URL || process.env.MONGODB_URI,
     dbName: process.env.MONGO_DB_NAME || process.env.DBNAME,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1h',
 };
 
 if (!envData.mongoURL) {
@@ -19,6 +21,11 @@ if (!envData.dbName) {
 
 if (!envData.port) {
     console.log("Port is not defined in .env file");
+    process.exit(1);
+}
+
+if (!envData.jwtSecret) {
+    console.log("JWT secret is not defined in .env file");
     process.exit(1);
 }
 
