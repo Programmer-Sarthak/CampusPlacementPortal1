@@ -3,10 +3,10 @@ import service from '../services/userService.js';
 import statusMessages from '../utils/statusMessages.js';
 import { envData } from '../config/env.js';
 
-const registerStudent = async (req, res) => {
+const registerUser = async (req, res) => {
   try {
     const userData = req.body;
-    const user = await service.registerStudent(userData);
+    const user = await service.registerUser(userData);
 
     const safeUser = {
       enrollmentNumber: user.enrollmentNumber,
@@ -26,10 +26,10 @@ const registerStudent = async (req, res) => {
   }
 };
 
-const loginStudent = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const { enrollmentNumber, password } = req.body;
-    const user = await service.loginStudent({ enrollmentNumber, password });
+    const user = await service.loginUser({ enrollmentNumber, password });
 
     const tokenPayload = {
       id: user._id,
@@ -60,11 +60,11 @@ const loginStudent = async (req, res) => {
   }
 };
 
-const updateStudent = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const { enrollmentNumber } = req.params;
     const updateData = req.body;
-    const user = await service.updateStudent(enrollmentNumber, updateData);
+    const user = await service.updateUser(enrollmentNumber, updateData);
 
     const safeUser = {
       enrollmentNumber: user.enrollmentNumber,
@@ -75,7 +75,7 @@ const updateStudent = async (req, res) => {
     };
 
     return res.status(statusMessages.SUCCESS.code).json({
-      message: 'Student updated successfully',
+      message: 'User updated successfully',
       data: safeUser,
     });
   } catch (error) {
@@ -87,7 +87,7 @@ const updateStudent = async (req, res) => {
 };
 
 export default {
-  registerStudent,
-  loginStudent,
-  updateStudent,
+  registerUser,
+  loginUser,
+  updateUser,
 }; 

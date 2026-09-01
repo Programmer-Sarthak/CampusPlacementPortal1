@@ -1,7 +1,7 @@
 import { body, param, validationResult } from 'express-validator';
 import statusMessages from '../utils/statusMessages.js';
 
-export const validateRegisterStudent = [
+export const validateRegisterUser = [
   body('role')
     .exists({ checkFalsy: true })
     .withMessage('role is required')
@@ -131,7 +131,7 @@ export const validateRegisterStudent = [
   },
 ];
 
-export const validateLoginStudent = [
+export const validateLoginUser = [
   body('enrollmentNumber')
     .exists({ checkFalsy: true })
     .withMessage('enrollmentNumber is required')
@@ -161,7 +161,7 @@ export const validateLoginStudent = [
   },
 ];
 
-export const validateUpdateStudent = [
+export const validateUpdateUser = [
   param('enrollmentNumber')
     .exists({ checkFalsy: true })
     .withMessage('enrollmentNumber parameter is required')

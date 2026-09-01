@@ -1,8 +1,12 @@
+
+
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import statusMessages from '../utils/statusMessages.js';
 
-const registerStudent = async (userData) => {
+
+
+const registerUser = async (userData) => {
   const existingUser = await User.findOne({
     $or: [{ enrollmentNumber: userData.enrollmentNumber }, { 'contact.email': userData.contact.email }],
   });
@@ -20,7 +24,7 @@ const registerStudent = async (userData) => {
   return await user.save();
 };
 
-const loginStudent = async ({ enrollmentNumber, password }) => {
+const loginUser = async ({ enrollmentNumber, password }) => {
   const user = await User.findOne({ enrollmentNumber });
 
   if (!user) {
@@ -39,7 +43,7 @@ const loginStudent = async ({ enrollmentNumber, password }) => {
   return user;
 };
 
-const updateStudent = async (enrollmentNumber, updateData) => {
+const updateUser = async (enrollmentNumber, updateData) => {
   const allowedFields = ['academicInfo', 'experience'];
   const filteredUpdate = {};
 
@@ -71,7 +75,7 @@ const updateStudent = async (enrollmentNumber, updateData) => {
 };
 
 export default {
-  registerStudent,
-  loginStudent,
-  updateStudent,
+  registerUser,
+  loginUser,
+  updateUser,
 };

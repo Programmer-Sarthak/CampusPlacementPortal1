@@ -4,6 +4,8 @@ import userRoute from './routes/UserRoute.js';
 import requestLogger from './middlewares/requestLogger.js';
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT ?? 3000;
@@ -12,11 +14,14 @@ await connectDB();
 
 app.use(express.json());
 app.use(requestLogger);
-app.use('/api/users', userRoute);
+app.use('/api/user', userRoute);
+
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
+
+
 
 app.use(notFound);
 app.use(errorHandler);
