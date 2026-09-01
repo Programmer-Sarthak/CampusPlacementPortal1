@@ -13,7 +13,8 @@ import bcrypt from "bcryptjs";
 import generateToken from "../utils/jwt.js";
 
 export const addAuthorizedUserService = async (userData)=>{
-    let userExists = await AuthorizedUser.findOne({email:userData.email});
+    let userExists = await AuthorizedUser.findOne({"contact.email":userData.contact.email});
+    console.log(userExists , userData.contact.email );
     if(!userExists){
        userData.passwordHash = await bcrypt.hash(userData.password,10);
 
