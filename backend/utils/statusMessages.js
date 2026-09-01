@@ -1,6 +1,3 @@
-/**
- * Status Codes and Messages for API Responses
- */
 
 const statusMessages = {
   // Success Responses
