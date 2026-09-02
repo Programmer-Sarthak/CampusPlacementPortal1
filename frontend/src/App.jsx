@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import AdminSidebar from "../components/AdminSidebar";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import AdminSidebar from "./components/AdminSidebar";
 
-import StudentDashboard from "../components/StudentDashboard";
-import Opportunities from "../components/Opportunities";
-import MyApplications from "../components/MyApplications";
-import ResumeBuilder from "../components/ResumeBuilder";
+import StudentDashboard from "./components/StudentDashboard";
+import Opportunities from "./components/Opportunities";
+import MyApplications from "./components/MyApplications";
+import ResumeBuilder from "./components/ResumeBuilder";
 
-import AdminOverview from "../components/AdminOverview";
-import ManageDrives from "../components/ManageDrives";
-import StudentList from "../components/StudentList";
-import ShortlistResults from "../components/ShortlistResults";
-import Announcements from "../components/Announcements";
+import AdminOverview from "./components/AdminOverview";
+import ManageDrives from "./components/ManageDrives";
+import StudentList from "./components/StudentList";
+import ShortlistResults from "./components/ShortlistResults";
+import Announcements from "./components/Announcements";
 
 function App() {
 
