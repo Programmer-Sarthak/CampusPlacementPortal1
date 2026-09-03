@@ -15,6 +15,9 @@ const authenticateJWT = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, envData.jwtSecret);
     req.user = decoded;
+
+    // console.log('Decoded JWT:', decoded); 
+    
     next();
   } catch (error) {
     return res.status(statusMessages.UNAUTHORIZED.code).json({

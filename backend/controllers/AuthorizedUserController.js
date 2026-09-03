@@ -1,11 +1,11 @@
 //Controller layer for authorized user
 
-import { addAuthorizedUserService ,loginAuthorizedUserService} from '../services/authorizedUserService.js'
+import { createAuthorizedUserService ,loginAuthorizedUserService} from '../services/authorizedUserService.js'
 
 const addAuthorizedUser = async (req, res) => {
-    let data = req.body;
-    // console.log(data);
-    await addAuthorizedUserService(data);
+    const data = req.body;
+    data.createdBy = req.user;
+    const user = await createAuthorizedUserService(data);
 
 
 
@@ -13,9 +13,9 @@ const addAuthorizedUser = async (req, res) => {
         .json({
             message: "user added successfully",
             data: {
-                name: data.name,
-                email: data.email,
-                status: data.status
+                name: user.name,
+                email: user.contact.email,
+                status: user.status
             }
         })
 }
